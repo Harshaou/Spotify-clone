@@ -1,7 +1,6 @@
 import React from 'react';
 import { accessUrl } from '../components/spotify'
-import { Link } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
+// import { Link } from 'react-router-dom';
 
 const Login = () => {
     return (

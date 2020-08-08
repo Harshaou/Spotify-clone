@@ -12,6 +12,11 @@ export default (state = initialState, action ) => {
                 ...state,
                 user: action.payload
             }
+        case 'SET_PLAYLIST':
+            return {
+                ...state,
+                playlists: action.payload
+            }
         default: return state            
     }
 }
