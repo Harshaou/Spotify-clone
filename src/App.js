@@ -13,7 +13,6 @@ const App = () => {
     const dispatch = useDispatch()
 
 
-
     useEffect(() => {
         let hash = getTokenFromResponse()
         window.location.hash = ''
@@ -24,18 +23,20 @@ const App = () => {
         .then(user => {
             dispatch({type: 'SET_USER', payload: user})
         })
-        spotify.getPlaylist()
-        .then(playlists => {
-            console.log(playlists)
+        spotify.getUserPlaylists()
+        .then(response => {
+            dispatch({type: 'SET_PLAYLIST', payload: response})
         })
         }
+        
     },[token, dispatch]);
+    
 
-   
+
     return (
         <div>
             <Route exact path='/' render={() => (
-                <Player />
+                <Player spotify={spotify} />
             )} />
             <Route path='/login' component={Login} />
         </div>

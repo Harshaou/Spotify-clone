@@ -1,9 +1,10 @@
 import React from 'react';
+import BodyHeader from './BodyHeader';
 
-const Body = () => {
+const Body = ({spotify}) => {
     return (
         <div className='body'>
-            body
+            <BodyHeader />
         </div>
     );
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import {useSelector} from 'react-redux'
 import SideBarTitle from './SideBarTitle';
 import {MdHome} from 'react-icons/md'
 import {MdSearch} from 'react-icons/md'
@@ -6,6 +7,10 @@ import {MdLibraryMusic} from 'react-icons/md'
 
 
 const SideBar = () => {
+
+    const {playlists} = useSelector(state => state)
+    console.log(playlists)
+
     return (
         <div className='sidebar'>
         <img
@@ -19,10 +24,13 @@ const SideBar = () => {
         <div className='mini-title'>
             <strong className='playlist'>Playlists</strong>
             <hr/>
-            <SideBarTitle title='Rock' />
-            <SideBarTitle title='Melody' />
-            <SideBarTitle title='Hip hop' />
+            {playlists?.items?.map((item,index) => {
+                return (
+                    <SideBarTitle key={index} title={item.name} />
+                )
+            })}
         </div>
+
 
          </div>
     );
